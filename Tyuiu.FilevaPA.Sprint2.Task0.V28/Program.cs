@@ -25,11 +25,11 @@ internal class Program
 
         DataService ds = new DataService();
 
-        Console.Write("Введите значение X: ");
-        int x = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Введите X: ");
+        int x = int.Parse(Console.ReadLine());
 
-        Console.Write("Введите значение Y: ");
-        int y = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Введите Y: ");
+        int y = int.Parse(Console.ReadLine());
 
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
@@ -37,53 +37,16 @@ internal class Program
 
         bool[] results = ds.GetCompareOperations(x, y);
 
-        Console.WriteLine($"При x = {x}, y = {y}:");
-        Console.WriteLine($"x + 15 = {x + 15}");
+        Console.WriteLine($"X = {x}, Y = {y}");
+        Console.WriteLine($"X + 15 = {x + 15}");
         Console.WriteLine();
-        Console.WriteLine("Результаты операций сравнения:");
-        Console.WriteLine($"1. (x + 15) < y  = {results[0]}");
-        Console.WriteLine($"2. (x + 15) > y  = {results[1]}");
-        Console.WriteLine($"3. (x + 15) <= y = {results[2]}");
-        Console.WriteLine($"4. (x + 15) >= y = {results[3]}");
-        Console.WriteLine($"5. (x + 15) == y = {results[4]}");
-        Console.WriteLine($"6. (x + 15) != y = {results[5]}");
-
-        Console.WriteLine();
-        Console.WriteLine("Логическая последовательность:");
-        Console.Write("(");
-        for (int i = 0; i < results.Length; i++)
-        {
-            Console.Write(results[i]);
-            if (i < results.Length - 1)
-                Console.Write(", ");
-        }
-        Console.WriteLine(")");
-
-        Console.WriteLine();
-        Console.WriteLine("***************************************************************************");
-        Console.WriteLine("* ПРОВЕРКА ДЛЯ x = 111, y = 735:                                         *");
-        Console.WriteLine("***************************************************************************");
-
-        // Автоматическая проверка для заданных значений
-        if (x == 111 && y == 735)
-        {
-            bool allFalse = true;
-            foreach (bool result in results)
-            {
-                if (result)
-                {
-                    allFalse = false;
-                    break;
-                }
-            }
-
-            if (allFalse)
-            {
-                Console.WriteLine("✓ УСПЕХ: Все операции вернули False как и требовалось!");
-            }
-            
-            
-        }
+        Console.WriteLine("Результаты сравнений:");
+        Console.WriteLine($"(X + 15) < Y  = {results[0]}");
+        Console.WriteLine($"(X + 15) > Y  = {results[1]}");
+        Console.WriteLine($"(X + 15) <= Y = {results[2]}");
+        Console.WriteLine($"(X + 15) >= Y = {results[3]}");
+        Console.WriteLine($"(X + 15) == Y = {results[4]}");
+        Console.WriteLine($"(X + 15) != Y = {results[5]}");
 
         Console.ReadKey();
     }

@@ -52,24 +52,12 @@ public sealed class DataServiceTest
     public void ValidGetCompareOperationsWhenXPlus15LessThanY()
     {
         DataService ds = new DataService();
+        int x = 111;
+        int y = 735;
 
-        // Тест когда x + 15 < y
-        int x = 5;
-        int y = 30;
         bool[] result = ds.GetCompareOperations(x, y);
+        bool[] wait = { false, false, false, false, false, false };
 
-        // 5 + 15 = 20, поэтому:
-        // 20 < 30 = True
-        // 20 > 30 = False  
-        // 20 <= 30 = True
-        // 20 >= 30 = False
-        // 20 == 30 = False
-        // 20 != 30 = True
-        bool[] wait = { true, false, true, false, false, true };
-
-        for (int i = 0; i < 6; i++)
-        {
-            Assert.AreEqual(wait[i], result[i], $"Ошибка в операции {i + 1}");
-        }
+        CollectionAssert.AreEqual(wait, result);
     }
 }
