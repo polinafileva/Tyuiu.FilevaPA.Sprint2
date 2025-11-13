@@ -81,10 +81,8 @@ internal class Program
             {
                 Console.WriteLine("✓ УСПЕХ: Все операции вернули False как и требовалось!");
             }
-            else
-            {
-                Console.WriteLine("✗ ОШИБКА: Не все операции вернули False!");
-            }
+            
+            
         }
 
         Console.ReadKey();
