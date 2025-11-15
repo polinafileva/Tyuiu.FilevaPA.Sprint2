@@ -4,7 +4,7 @@ public class DataService : ISprint2Task1V7
 {
     public bool[] GetLogicOperations(int a, int b, int c, int d)
     {
-        bool[] res = new bool[7];
+        bool[] res = new bool[6];
 
         // True: 195 > (16 + 14) = 195 > 30 = True
         res[0] = a > (b + c);
@@ -24,9 +24,6 @@ public class DataService : ISprint2Task1V7
         // False: (195%19=5 == 0) = False
         res[5] = (a % 19) == 0;
 
-        // False: (16+14=30 == 195) = False
-        res[6] = (b + c) == a;
-
         return res;
     }
-}
+    }
