@@ -1,6 +1,7 @@
-﻿namespace Tyuiu.FilevaPA.Sprint2.Task2.V1.Test
-{
+﻿namespace Tyuiu.FilevaPA.Sprint2.Task2.V1.Test;
     using Tyuiu.FilevaPA.Sprint2.Task2.V1.Lib;
+{
+   
     [TestClass]
     public sealed class DataServiceTest
     {
