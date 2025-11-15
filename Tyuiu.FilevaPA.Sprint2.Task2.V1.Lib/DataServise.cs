@@ -1,4 +1,5 @@
 ﻿namespace Tyuiu.FilevaPA.Sprint2.Task2.V1.Lib;
+using Tyuiu.FilevaPA.Sprint2.Task2.V1.Lib;
 using tyuiu.cources.programming.interfaces.Sprint2;
 public class DataServise : ISprint2Task2V1
 {

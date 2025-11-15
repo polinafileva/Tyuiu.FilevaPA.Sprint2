@@ -21,7 +21,6 @@ internal class Program
         Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
         Console.WriteLine("***************************************************************************");
 
-   
 
         try
         {
@@ -33,31 +32,5 @@ internal class Program
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
-            Console.WriteLine("***************************************************************************");
-
-            bool result = ds.CheckDotInShadedArea(x, y);
-
-            Console.WriteLine($"Координаты точки: X = {x}, Y = {y}");
-            Console.WriteLine($"Точка находится в заштрихованной области: {result}");
-
-            if (result)
-            {
-                Console.WriteLine("Точка находится в заштрихованной области (черный квадрат)");
-            }
-            else
-            {
-                Console.WriteLine("Точка НЕ находится в заштрихованной области");
-            }
-        }
-        catch (FormatException)
-        {
-            Console.WriteLine("Ошибка: введите целые числа");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Произошла ошибка: {ex.Message}");
-        }
-
-        Console.ReadKey();
-    }
-}
+        
+      
