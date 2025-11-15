@@ -31,30 +31,23 @@ internal class Program
             Console.Write("Введите координату Y (1-15): ");
             int y = int.Parse(Console.ReadLine());
 
-            // Проверка допустимости координат
-            if (x < 1 || x > 15 || y < 1 || y > 15)
-            {
-                Console.WriteLine("Ошибка: координаты должны быть в диапазоне от 1 до 15");
-                return;
-            }
-
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
 
             bool result = ds.CheckDotInShadedArea(x, y);
 
-            Console.WriteLine($"Координаты точки: X={x}, Y={y}");
+            Console.WriteLine($"Координаты точки: X = {x}, Y = {y}");
             Console.WriteLine($"Точка находится в заштрихованной области: {result}");
 
-            // Дополнительная информация
-            Console.WriteLine();
-            Console.WriteLine("Заштрихованные области:");
-            Console.WriteLine("- Верхний левый угол (1-3, 1-3)");
-            Console.WriteLine("- Верхний правый угол (13-15, 1-3)");
-            Console.WriteLine("- Нижний левый угол (1-3, 13-15)");
-            Console.WriteLine("- Нижний правый угол (13-15, 13-15)");
-            Console.WriteLine("- Центр (7-9, 7-9)");
+            if (result)
+            {
+                Console.WriteLine("Точка находится в заштрихованной области (черный квадрат)");
+            }
+            else
+            {
+                Console.WriteLine("Точка НЕ находится в заштрихованной области");
+            }
         }
         catch (FormatException)
         {
