@@ -1,6 +1,6 @@
 ﻿namespace Tyuiu.FilevaPA.Sprint2.Task1.V7.Test;
 using Tyuiu.FilevaPA.Sprint2.Task1.V7.Lib;
-{
+
     [TestClass]
     public sealed class DataServiceTest
     {
@@ -15,7 +15,7 @@ using Tyuiu.FilevaPA.Sprint2.Task1.V7.Lib;
         int d = 45;
 
         bool[] res = ds.GetLogicOperations(a, b, c, d);
-        bool[] wait = { true, false, false, true, false, true, false };
+        bool[] wait = { true, false, false, false, true, false, false };
 
         CollectionAssert.AreEqual(wait, res);
     }
@@ -36,27 +36,32 @@ using Tyuiu.FilevaPA.Sprint2.Task1.V7.Lib;
         Assert.IsTrue(res[0]);   // True
         Assert.IsFalse(res[1]);  // False
         Assert.IsFalse(res[2]);  // False
-        Assert.IsTrue(res[3]);   // False
-        Assert.IsFalse(res[4]);  // False
-        Assert.IsTrue(res[5]);   // True
+        Assert.IsFalse(res[3]);  // False
+        Assert.IsTrue(res[4]);   // True
+        Assert.IsFalse(res[5]);  // False
         Assert.IsFalse(res[6]);  // False
     }
 
     [TestMethod]
-    public void ValidGetLogicOperationsWithDifferentValues()
+    public void ValidGetLogicOperationsCalculations()
     {
         DataService ds = new DataService();
 
-        // Тест с другими значениями для проверки устойчивости
-        int a = 100;
-        int b = 20;
-        int c = 10;
-        int d = 30;
+        int a = 195;
+        int b = 16;
+        int c = 14;
+        int d = 45;
 
         bool[] res = ds.GetLogicOperations(a, b, c, d);
 
-        // Проверяем, что метод работает без ошибок
-        Assert.AreEqual(7, res.Length);
-    }
+        // Проверка вычислений
+        Assert.AreEqual(195 > (16 + 14), res[0]);      // 195 > 30 = True
+        Assert.AreEqual(16 <= 14, res[1]);             // False
+        Assert.AreEqual(195 == (16 * 12), res[2]);     // 195 == 192 = False
+        Assert.AreEqual((45 / 9) >= 14, res[3]);       // 5 >= 14 = False
+        Assert.AreEqual(14 < 45, res[4]);              // True
+        Assert.AreEqual((195 % 19) == 0, res[5]);      // 5 == 0 = False
+        Assert.AreEqual((16 + 14) == 195, res[6]);     // 30 == 195 = False
     }
 }
+
