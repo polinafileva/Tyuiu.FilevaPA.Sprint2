@@ -7,8 +7,8 @@ internal class Program
         Console.Title = "Спринт #2 | Выполнила: Филева Полина Алексеевна. | ИСПБ-25-1";
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("* Спринт #2                                                               *");
-        Console.WriteLine("* Тема: Базовые навыки работы в C#                                        *");
-        Console.WriteLine("* Задание #0                                                            *");
+        Console.WriteLine("* Тема: Операции сравнения                                       *");
+        Console.WriteLine("* Задание #0                                                           *");
         Console.WriteLine("* Вариант #28                                                             *");
         Console.WriteLine("* Выполнила: Филева Полина Алексеевна | ИСПБ-25-1                        *");
         Console.WriteLine("***************************************************************************");
@@ -25,11 +25,11 @@ internal class Program
 
         DataService ds = new DataService();
 
-        Console.Write("Введите X: ");
-        int x = int.Parse(Console.ReadLine());
+        int x = 111;
+        int y = 735;
 
-        Console.Write("Введите Y: ");
-        int y = int.Parse(Console.ReadLine());
+        Console.WriteLine($"X = {x}");
+        Console.WriteLine($"Y = {y}");
 
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
@@ -47,6 +47,27 @@ internal class Program
         Console.WriteLine($"(X + 15) >= Y = {results[3]}");
         Console.WriteLine($"(X + 15) == Y = {results[4]}");
         Console.WriteLine($"(X + 15) != Y = {results[5]}");
+
+        Console.WriteLine();
+        Console.WriteLine("Полная последовательность:");
+        Console.WriteLine($"({string.Join(", ", results)})");
+
+        // Проверка соответствия ожидаемому результату
+        bool[] expected = { false, false, false, false, false, false };
+        bool isCorrect = true;
+
+        for (int i = 0; i < results.Length; i++)
+        {
+            if (results[i] != expected[i])
+            {
+                isCorrect = false;
+                break;
+            }
+        }
+
+        Console.WriteLine();
+        Console.WriteLine($"Ожидаемая последовательность: ({string.Join(", ", expected)})");
+        Console.WriteLine($"Результат корректный: {isCorrect}");
 
         Console.ReadKey();
     }

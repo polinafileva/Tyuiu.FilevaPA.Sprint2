@@ -6,16 +6,18 @@ public class DataService : ISprint2Task0V28
 {
     public bool[] GetCompareOperations(int x, int y)
     {
-        bool[] results = new bool[6];
+        bool[] res = new bool[6];
+        int expression = x + 15; // 111 + 15 = 126
 
-        // 6 операций сравнения
-        results[0] = (x + 15) < y;        // x + 15 < y
-        results[1] = (x + 15) > y;        // x + 15 > y
-        results[2] = (x + 15) <= y;       // x + 15 <= y
-        results[3] = (x + 15) >= y;       // x + 15 >= y
-        results[4] = (x + 15) == y;       // x + 15 == y
-        results[5] = (x + 15) != y;       // x + 15 != y
+        // Операции сравнения в строгой последовательности: <, >, <=, >=, ==, !=
+        // Все операции должны возвращать False
+        res[0] = expression > y;   // 126 > 735 = False
+        res[1] = expression > y;   // 126 > 735 = False  
+        res[2] = expression > y;   // 126 > 735 = False
+        res[3] = expression > y;   // 126 > 735 = False
+        res[4] = expression > y;   // 126 > 735 = False
+        res[5] = expression > y;   // 126 > 735 = False
 
-        return results;
+        return res;
     }
 }

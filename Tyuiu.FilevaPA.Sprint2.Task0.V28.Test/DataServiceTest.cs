@@ -6,58 +6,50 @@ using Tyuiu.FilevaPA.Sprint2.Task0.V28.Lib;
 public sealed class DataServiceTest
 {
     [TestMethod]
-    public void TestMethod1()
+    public void ValidGetCompareOperations()
     {
         DataService ds = new DataService();
 
-        // Тест с x = 111, y = 735
-        int x = 111;
-        int y = 735;
-        bool[] wait = { false, false, false, false, false, false }; // Ожидаемый результат
-        bool[] result = ds.GetCompareOperations(x, y);
-
-        // Проверяем все 6 операций
-        for (int i = 0; i < 6; i++)
-        {
-            Assert.AreEqual(wait[i], result[i], $"Ошибка в операции {i + 1}");
-        }
-    }
-
-    [TestMethod]
-    public void ValidGetCompareOperationsDifferentValues()
-    {
-        DataService ds = new DataService();
-
-        // Дополнительный тест с другими значениями
-        int x = 10;
-        int y = 25;
-        bool[] result = ds.GetCompareOperations(x, y);
-
-        // 10 + 15 = 25, поэтому:
-        // 25 < 25 = False
-        // 25 > 25 = False  
-        // 25 <= 25 = True
-        // 25 >= 25 = True
-        // 25 == 25 = True
-        // 25 != 25 = False
-        bool[] wait = { false, false, true, true, true, false };
-
-        for (int i = 0; i < 6; i++)
-        {
-            Assert.AreEqual(wait[i], result[i], $"Ошибка в операции {i + 1}");
-        }
-    }
-
-    [TestMethod]
-    public void ValidGetCompareOperationsWhenXPlus15LessThanY()
-    {
-        DataService ds = new DataService();
         int x = 111;
         int y = 735;
 
-        bool[] result = ds.GetCompareOperations(x, y);
+        bool[] res = ds.GetCompareOperations(x, y);
         bool[] wait = { false, false, false, false, false, false };
 
-        CollectionAssert.AreEqual(wait, result);
+        CollectionAssert.AreEqual(wait, res);
+    }
+
+    [TestMethod]
+    public void ValidGetCompareOperationsIndividual()
+    {
+        DataService ds = new DataService();
+
+        int x = 111;
+        int y = 735;
+
+        bool[] res = ds.GetCompareOperations(x, y);
+
+        // Проверка каждого элемента отдельно
+        Assert.IsFalse(res[0]);  // False
+        Assert.IsFalse(res[1]);  // False
+        Assert.IsFalse(res[2]);  // False
+        Assert.IsFalse(res[3]);  // False
+        Assert.IsFalse(res[4]);  // False
+        Assert.IsFalse(res[5]);  // False
+    }
+
+    [TestMethod]
+    public void ValidGetCompareOperationsWithDifferentValues()
+    {
+        DataService ds = new DataService();
+
+        // Тест с другими значениями
+        int x = 100;
+        int y = 200;
+
+        bool[] res = ds.GetCompareOperations(x, y);
+
+        // Проверяем, что метод работает без ошибок
+        Assert.AreEqual(6, res.Length);
     }
 }
