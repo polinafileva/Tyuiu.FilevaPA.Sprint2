@@ -1,5 +1,6 @@
 ﻿namespace Tyuiu.FilevaPA.Sprint2.Task1.V7.Lib;
 using tyuiu.cources.programming.interfaces.Sprint2;
+using Tyuiu.FilevaPA.Sprint2.Task0.V28.Lib;
 public class DataService : ISprint2Task1V7
 {
     public bool[] GetLogicOperations(int a, int b, int c, int d)
