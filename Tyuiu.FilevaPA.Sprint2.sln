@@ -13,11 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyuiu.FilevaPA.Sprint2.Task
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task 1", "Task 1", "{6F2EE599-2DF8-4280-AE7C-B41CDB34633C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyuiu.FilevaPA.Sprint2.Task1V7", "Tyuiu.FilevaPA.Sprint2.Task1V7\Tyuiu.FilevaPA.Sprint2.Task1V7.csproj", "{BF27628B-BA20-44F9-8438-9AC45B381F97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyuiu.FilevaPA.Sprint2.Task1.V7", "Tyuiu.FilevaPA.Sprint2.Task1V7\Tyuiu.FilevaPA.Sprint2.Task1.V7.csproj", "{BF27628B-BA20-44F9-8438-9AC45B381F97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyuiu.FilevaPA.Sprint2.Task1V7.Lib", "Tyuiu.FilevaPA.Sprint2.Task1V7.Lib\Tyuiu.FilevaPA.Sprint2.Task1V7.Lib.csproj", "{2D47206E-4B30-441B-AD39-412AD5081717}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyuiu.FilevaPA.Sprint2.Task1.V7.Lib", "Tyuiu.FilevaPA.Sprint2.Task1V7.Lib\Tyuiu.FilevaPA.Sprint2.Task1.V7.Lib.csproj", "{2D47206E-4B30-441B-AD39-412AD5081717}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyuiu.FilevaPA.Sprint2.Task1V7.Test", "Tyuiu.FilevaPA.Sprint2.Task1V7.Test\Tyuiu.FilevaPA.Sprint2.Task1V7.Test.csproj", "{12E2A19A-4445-4F58-8DDD-B221CFB2202D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyuiu.FilevaPA.Sprint2.Task1.V7.Test", "Tyuiu.FilevaPA.Sprint2.Task1V7.Test\Tyuiu.FilevaPA.Sprint2.Task1.V7.Test.csproj", "{12E2A19A-4445-4F58-8DDD-B221CFB2202D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
