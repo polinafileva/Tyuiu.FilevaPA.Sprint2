@@ -8,7 +8,7 @@
         [TestMethod]
         public void TestMethod1()
         {
-          DataService ds = new DataService();
+          
             int x = 2;
             int y = 2;
             bool result = ds.CheckDotInShadedArea(x, y);

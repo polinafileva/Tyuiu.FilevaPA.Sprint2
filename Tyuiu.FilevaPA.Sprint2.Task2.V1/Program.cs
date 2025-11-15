@@ -21,7 +21,7 @@ internal class Program
         Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
         Console.WriteLine("***************************************************************************");
 
-        DataService ds = new DataService();
+   
 
         try
         {
