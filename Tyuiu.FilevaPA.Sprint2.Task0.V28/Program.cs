@@ -1,4 +1,4 @@
-﻿namespace Tyuiu.FilevaPA.Sprint2.Task0.V28.Test;
+﻿namespace Tyuiu.FilevaPA.Sprint2.Task0.V28;
 using Tyuiu.FilevaPA.Sprint2.Task0.V28.Lib;
 internal class Program
 {
