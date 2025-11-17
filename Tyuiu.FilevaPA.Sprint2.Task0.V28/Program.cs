@@ -38,14 +38,15 @@ internal class Program
         bool[] results = ds.GetCompareOperations(x, y);
 
         Console.WriteLine($"X = {x}, Y = {y}");
+        Console.WriteLine($"X + 15 = {x + 15}");
         Console.WriteLine();
         Console.WriteLine("Результаты сравнений:");
-        Console.WriteLine($"X == Y  = {results[0]}");
-        Console.WriteLine($"X != X  = {results[1]}");
-        Console.WriteLine($"Y < X   = {results[2]}");
-        Console.WriteLine($"X > Y   = {results[3]}");
-        Console.WriteLine($"Y <= X  = {results[4]}");
-        Console.WriteLine($"X >= Y  = {results[5]}");
+        Console.WriteLine($"(X + 15) == Y = {results[0]}");
+        Console.WriteLine($"(X + 15) != (X + 15) = {results[1]}");
+        Console.WriteLine($"Y < X = {results[2]}");
+        Console.WriteLine($"(X + 15) > Y = {results[3]}");
+        Console.WriteLine($"Y <= X = {results[4]}");
+        Console.WriteLine($"(X + 15) >= Y = {results[5]}");
 
         Console.WriteLine();
         Console.WriteLine("Полная последовательность:");
