@@ -16,7 +16,7 @@ internal class Program
         Console.WriteLine("* Написать программу для операций сравнения (арифметических выражений),   *");
         Console.WriteLine("* которая возвращает логическую последовательность (массив):              *");
         Console.WriteLine("* (False, False, False, False, False, False) при x = 111, y = 735        *");
-        Console.WriteLine("* 6 операций: <, >, <=, >=, ==, !=                                       *");
+        Console.WriteLine("* 6 операций: ==, !=, <, >, <=, >=                                       *");
         Console.WriteLine("* Последовательность операций не должна нарушаться                       *");
         Console.WriteLine("*                                                                         *");
         Console.WriteLine("***************************************************************************");
@@ -38,15 +38,14 @@ internal class Program
         bool[] results = ds.GetCompareOperations(x, y);
 
         Console.WriteLine($"X = {x}, Y = {y}");
-        Console.WriteLine($"X + 15 = {x + 15}");
         Console.WriteLine();
         Console.WriteLine("Результаты сравнений:");
-        Console.WriteLine($"(X + 15) < Y  = {results[0]}");
-        Console.WriteLine($"(X + 15) > Y  = {results[1]}");
-        Console.WriteLine($"(X + 15) <= Y = {results[2]}");
-        Console.WriteLine($"(X + 15) >= Y = {results[3]}");
-        Console.WriteLine($"(X + 15) == Y = {results[4]}");
-        Console.WriteLine($"(X + 15) != Y = {results[5]}");
+        Console.WriteLine($"X == Y  = {results[0]}");
+        Console.WriteLine($"X != X  = {results[1]}");
+        Console.WriteLine($"Y < X   = {results[2]}");
+        Console.WriteLine($"X > Y   = {results[3]}");
+        Console.WriteLine($"Y <= X  = {results[4]}");
+        Console.WriteLine($"X >= Y  = {results[5]}");
 
         Console.WriteLine();
         Console.WriteLine("Полная последовательность:");

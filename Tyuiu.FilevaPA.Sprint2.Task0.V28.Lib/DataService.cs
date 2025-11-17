@@ -10,14 +10,15 @@ public class DataService : ISprint2Task0V28
     {
         bool[] results = new bool[6];
 
-        // Последовательность операций, возвращающая все False
-        results[0] = x == y;      // 111 == 735 = False
-        results[1] = x != x;      // 111 != 111 = False
-        results[2] = y < x;       // 735 < 111 = False
-        results[3] = x > y;       // 111 > 735 = False
-        results[4] = y <= x;      // 735 <= 111 = False
-        results[5] = x >= y;      // 111 >= 735 = False
+        // Последовательность операций сравнения: ==, !=, <, >, <=, >=
+        // Все операции должны возвращать False при x = 111, y = 735
+        results[0] = x == y;      // 111 == 735 → False
+        results[1] = x != x;      // 111 != 111 → False
+        results[2] = y < x;       // 735 < 111 → False
+        results[3] = x > y;       // 111 > 735 → False
+        results[4] = y <= x;      // 735 <= 111 → False
+        results[5] = x >= y;      // 111 >= 735 → False
 
-        return results; // (False, False, False, False, False, False)
+        return results;
     }
 }

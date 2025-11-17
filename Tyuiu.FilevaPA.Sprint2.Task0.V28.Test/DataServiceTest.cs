@@ -17,17 +17,34 @@ public sealed class DataServiceTest
     }
 
     [TestMethod]
-    public void ValidGetCompareOperations_CheckOperationsSequence()
+    public void ValidGetCompareOperations_CheckAllFalse()
     {
         DataService ds = new DataService();
         int x = 111;
         int y = 735;
         bool[] res = ds.GetCompareOperations(x, y);
 
-        // Проверяем что все операции возвращают False
-        for (int i = 0; i < res.Length; i++)
+        foreach (bool item in res)
         {
-            Assert.IsFalse(res[i], $"Операция с индексом {i} должна возвращать False");
+            Assert.IsFalse(item);
         }
     }
-}
+
+    [TestMethod]
+    public void ValidGetCompareOperations_CheckSequence()
+    {
+        DataService ds = new DataService();
+        int x = 111;
+        int y = 735;
+        bool[] res = ds.GetCompareOperations(x, y);
+
+        // Проверяем последовательность операций
+        Assert.IsFalse(res[0]); // ==
+        Assert.IsFalse(res[1]); // !=  
+        Assert.IsFalse(res[2]); // <
+        Assert.IsFalse(res[3]); // >
+        Assert.IsFalse(res[4]); // <=
+        Assert.IsFalse(res[5]); // >=
+    }
+    }
+
