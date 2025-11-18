@@ -51,7 +51,11 @@ public class DataService : ISprint2Task5V13
             }
         }
 
-        return $"{nextDay}.{nextMonth}.{nextYear}";
+        // Форматируем с ведущими нулями
+        string formattedDay = nextDay.ToString("D2");
+        string formattedMonth = nextMonth.ToString("D2");
+
+        return $"{formattedDay}.{formattedMonth}.{nextYear}";
     }
 
     public bool IsLeapYear(int year)

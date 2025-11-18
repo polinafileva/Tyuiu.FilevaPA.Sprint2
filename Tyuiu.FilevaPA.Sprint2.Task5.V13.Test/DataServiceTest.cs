@@ -8,7 +8,7 @@ public sealed class DataServiceTest
     {
         DataService ds = new DataService();
         string result = ds.FindDateOfNextDay(2024, 5, 15);
-        Assert.AreEqual("16.5.2024", result);
+        Assert.AreEqual("16.05.2024", result);
     }
 
     [TestMethod]
@@ -16,7 +16,7 @@ public sealed class DataServiceTest
     {
         DataService ds = new DataService();
         string result = ds.FindDateOfNextDay(2024, 4, 30); // 30 апреля
-        Assert.AreEqual("1.5.2024", result);
+        Assert.AreEqual("01.05.2024", result);
     }
 
     [TestMethod]
@@ -24,7 +24,7 @@ public sealed class DataServiceTest
     {
         DataService ds = new DataService();
         string result = ds.FindDateOfNextDay(2024, 12, 31); // 31 декабря
-        Assert.AreEqual("1.1.2025", result);
+        Assert.AreEqual("01.01.2025", result);
     }
 
     [TestMethod]
@@ -32,7 +32,7 @@ public sealed class DataServiceTest
     {
         DataService ds = new DataService();
         string result = ds.FindDateOfNextDay(2024, 2, 28); // 28 февраля високосного года
-        Assert.AreEqual("29.2.2024", result);
+        Assert.AreEqual("29.02.2024", result);
     }
 
     [TestMethod]
@@ -40,7 +40,7 @@ public sealed class DataServiceTest
     {
         DataService ds = new DataService();
         string result = ds.FindDateOfNextDay(2023, 2, 28); // 28 февраля невисокосного года
-        Assert.AreEqual("1.3.2023", result);
+        Assert.AreEqual("01.03.2023", result);
     }
 
     [TestMethod]
@@ -48,7 +48,39 @@ public sealed class DataServiceTest
     {
         DataService ds = new DataService();
         string result = ds.FindDateOfNextDay(2024, 2, 29); // 29 февраля високосного года
-        Assert.AreEqual("1.3.2024", result);
+        Assert.AreEqual("01.03.2024", result);
+    }
+
+    [TestMethod]
+    public void ValidFindDateOfNextDay_30DayMonth()
+    {
+        DataService ds = new DataService();
+        string result = ds.FindDateOfNextDay(2024, 6, 30); // 30 июня
+        Assert.AreEqual("01.07.2024", result);
+    }
+
+    [TestMethod]
+    public void ValidFindDateOfNextDay_31DayMonth()
+    {
+        DataService ds = new DataService();
+        string result = ds.FindDateOfNextDay(2024, 7, 31); // 31 июля
+        Assert.AreEqual("01.08.2024", result);
+    }
+
+    [TestMethod]
+    public void ValidFindDateOfNextDay_SingleDigitDayAndMonth()
+    {
+        DataService ds = new DataService();
+        string result = ds.FindDateOfNextDay(2024, 8, 8); // 8 августа
+        Assert.AreEqual("09.08.2024", result);
+    }
+
+    [TestMethod]
+    public void ValidFindDateOfNextDay_SeptemberCase()
+    {
+        DataService ds = new DataService();
+        string result = ds.FindDateOfNextDay(2024, 9, 8); // 8 сентября
+        Assert.AreEqual("09.09.2024", result);
     }
 
     [TestMethod]
@@ -65,29 +97,5 @@ public sealed class DataServiceTest
         DataService ds = new DataService();
         Assert.IsFalse(ds.IsLeapYear(2023));
         Assert.IsFalse(ds.IsLeapYear(1900));
-    }
-
-    [TestMethod]
-    public void ValidFindDateOfNextDay_30DayMonth()
-    {
-        DataService ds = new DataService();
-        string result = ds.FindDateOfNextDay(2024, 6, 30); // 30 июня
-        Assert.AreEqual("1.7.2024", result);
-    }
-
-    [TestMethod]
-    public void ValidFindDateOfNextDay_31DayMonth()
-    {
-        DataService ds = new DataService();
-        string result = ds.FindDateOfNextDay(2024, 7, 31); // 31 июля
-        Assert.AreEqual("1.8.2024", result);
-    }
-
-    [TestMethod]
-    public void ValidFindDateOfNextDay_MarchFromLeapYear()
-    {
-        DataService ds = new DataService();
-        string result = ds.FindDateOfNextDay(2024, 2, 29); // 29 февраля високосного года
-        Assert.AreEqual("1.3.2024", result);
     }
 }
