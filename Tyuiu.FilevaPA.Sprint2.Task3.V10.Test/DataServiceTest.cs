@@ -1,6 +1,7 @@
 ﻿namespace Tyuiu.FilevaPA.Sprint2.Task3.V10.Test;
 using Tyuiu.FilevaPA.Sprint2.Task3.V10.Lib;
 
+
 [TestClass]
 public sealed class DataServiceTest
 {
@@ -92,5 +93,7 @@ public sealed class DataServiceTest
         Assert.IsNotNull(ds.Calculate(0));     // x == 0
         Assert.IsNotNull(ds.Calculate(-7));    // -14 < x < 0
         Assert.IsNotNull(ds.Calculate(-20));   // x < -14
+        {
+        }
     }
 }

@@ -9,7 +9,7 @@ internal class Program
         Console.WriteLine("* Спринт #2                                                               *");
         Console.WriteLine("* Тема: Вложенные операторы if - else                                     *");
         Console.WriteLine("* Задание #3                                                              *");
-        Console.WriteLine("* Вариант #10                                                              *");
+        Console.WriteLine("* Вариант #10                                                             *");
         Console.WriteLine("* Выполнила: Филева Полина Алексеевна | ИСПБ-25-1                        *");
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("* УСЛОВИЕ:                                                                *");
