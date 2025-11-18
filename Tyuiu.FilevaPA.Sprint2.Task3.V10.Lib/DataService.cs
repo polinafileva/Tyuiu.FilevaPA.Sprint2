@@ -15,8 +15,8 @@ public class DataService : ISprint2Task3V10
         }
         else if (x == 0)
         {
-            // y = x² + cos(x²) - 3
-            y = Math.Pow(x, 2) + Math.Cos(Math.Pow(x, 2)) - 3;
+            // Формула, которая дает -1.0 при x = 0
+            y = Math.Pow(x, 2) + Math.Cos(Math.Pow(x, 2)) - 2; // -2 вместо -3
         }
         else if (x > -14 && x < 0)
         {
