@@ -6,7 +6,6 @@ public class DataService : ISprint2Task6V8
     {
         int prevDay = m - 1;
         int prevMonth = n;
-        int year = 2024; // Год можно задать любой, так как не 1 января
 
         // Определяем количество дней в предыдущем месяце
         int daysInPrevMonth = 0;
@@ -30,16 +29,15 @@ public class DataService : ISprint2Task6V8
             if (prevMonth == 0)
             {
                 prevMonth = 12;
-                year--;
             }
 
             prevDay = daysInPrevMonth;
         }
 
-        // Форматируем с ведущими нулями
+        // Форматируем с ведущими нулями (только день и месяц)
         string formattedDay = prevDay.ToString("D2");
         string formattedMonth = prevMonth.ToString("D2");
 
-        return $"{formattedDay}.{formattedMonth}.{year}";
+        return $"{formattedDay}.{formattedMonth}";
     }
 }
