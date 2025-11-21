@@ -4,71 +4,62 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.Title = "Спринт #2 | Выполнила: Филева Полина Алексеевна. | ИСПБ-25-1";
+        Console.Title = "Спринт #4 | Выполнила: Филева Полина Алексеевна | ИСПБ-25-1";
+
         Console.WriteLine("***************************************************************************");
-        Console.WriteLine("* Спринт #2                                                               *");
-        Console.WriteLine("* Тема: Операции сравнения                                                *");
-        Console.WriteLine("* Задание #0                                                              *");
+        Console.WriteLine("* Спринт #2                                                       *");
+        Console.WriteLine("* Тема: Операции сравнения и логические операции                         *");
+        Console.WriteLine("* Задание #0                                                          *");
         Console.WriteLine("* Вариант #28                                                             *");
         Console.WriteLine("* Выполнила: Филева Полина Алексеевна | ИСПБ-25-1                        *");
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("* УСЛОВИЕ:                                                                *");
-        Console.WriteLine("* Написать программу для операций сравнения (арифметических выражений),   *");
-        Console.WriteLine("* которая возвращает логическую последовательность (массив):              *");
-        Console.WriteLine("* (False, False, False, False, False, False) при x = 111, y = 735        *");
-        Console.WriteLine("* 6 операций: ==, !=, <, >, <=, >=                                       *");
-        Console.WriteLine("* Последовательность операций не должна нарушаться                       *");
-        Console.WriteLine("*                                                                         *");
+        Console.WriteLine("* Написать программу из операций сравнений и арифметических выражений,   *");
+        Console.WriteLine("* которая вернет логическую последовательность (False, False, False,     *");
+        Console.WriteLine("* False, False, False) при x = 111, y = 735                              *");
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
         Console.WriteLine("***************************************************************************");
 
-        DataService ds = new DataService();
-
         int x = 111;
         int y = 735;
 
-        Console.WriteLine($"X = {x}");
-        Console.WriteLine($"Y = {y}");
+        Console.WriteLine($"x = {x}");
+        Console.WriteLine($"y = {y}");
 
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
         Console.WriteLine("***************************************************************************");
 
+        DataService ds = new DataService();
         bool[] results = ds.GetCompareOperations(x, y);
 
-        Console.WriteLine($"X = {x}, Y = {y}");
-        Console.WriteLine($"X + 15 = {x + 15}");
-        Console.WriteLine();
-        Console.WriteLine("Результаты сравнений:");
-        Console.WriteLine($"(X + 15) == Y = {results[0]}");
-        Console.WriteLine($"(X + 15) != (X + 15) = {results[1]}");
-        Console.WriteLine($"Y < X = {results[2]}");
-        Console.WriteLine($"(X + 15) > Y = {results[3]}");
-        Console.WriteLine($"Y <= X = {results[4]}");
-        Console.WriteLine($"(X + 15) >= Y = {results[5]}");
+        Console.WriteLine("Логическая последовательность:");
+        PrintBoolArray(results);
 
-        Console.WriteLine();
-        Console.WriteLine("Полная последовательность:");
-        Console.WriteLine($"({string.Join(", ", results)})");
-
-        // Проверка соответствия ожидаемому результату
-        bool[] expected = { false, false, false, false, false, false };
-        bool isCorrect = true;
-
-        for (int i = 0; i < results.Length; i++)
-        {
-            if (results[i] != expected[i])
-            {
-                isCorrect = false;
-                break;
-            }
-        }
-
-        Console.WriteLine();
-        Console.WriteLine($"Ожидаемая последовательность: ({string.Join(", ", expected)})");
-        Console.WriteLine($"Результат корректный: {isCorrect}");
+        // Детальный вывод операций
+        Console.WriteLine("\nДетальный расчет операций:");
+        Console.WriteLine("1. x == y                      → 111 == 735    → " + (x == y));
+        Console.WriteLine("2. (x + 100) == (y - 500)     → 211 == 235    → " + ((x + 100) == (y - 500)));
+        Console.WriteLine("3. (x * 10) < y               → 1110 < 735    → " + ((x * 10) < y));
+        Console.WriteLine("4. (y / 10) > x               → 73 > 111      → " + ((y / 10) > x));
+        Console.WriteLine("5. x <= (x - 50)              → 111 <= 61     → " + (x <= (x - 50)));
+        Console.WriteLine("6. y >= (y + 10)              → 735 >= 745    → " + (y >= (y + 10)));
 
         Console.ReadKey();
+    }
+
+    private static void PrintBoolArray(bool[] array)
+    {
+        Console.Write("(");
+        for (int i = 0; i < array.Length; i++)
+        {
+            Console.Write(array[i]);
+            if (i < array.Length - 1)
+            {
+                Console.Write(", ");
+            }
+        }
+        Console.WriteLine(")");
     }
 }

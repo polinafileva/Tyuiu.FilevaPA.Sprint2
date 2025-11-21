@@ -1,37 +1,44 @@
 ﻿namespace Tyuiu.FilevaPA.Sprint2.Task0.V28.Test;
 using Tyuiu.FilevaPA.Sprint2.Task0.V28.Lib;
-
 [TestClass]
 public sealed class DataServiceTest
 {
-
     [TestMethod]
-    public void ValidGetCompareOperations()
+    public void TestMethod1()
     {
         DataService ds = new DataService();
+
         int x = 111;
         int y = 735;
-        bool[] res = ds.GetCompareOperations(x, y);
-        bool[] wait = { false, false, false, false, false, false };
+        bool[] results = ds.GetCompareOperations(x, y);
 
-        CollectionAssert.AreEqual(wait, res);
+        // Проверяем что все элементы массива False
+        bool allFalse = true;
+        foreach (bool result in results)
+        {
+            if (result)
+            {
+                allFalse = false;
+                break;
+            }
+        }
+
+        Assert.AreEqual(6, results.Length);
+        Assert.IsTrue(allFalse, "Все элементы массива должны быть False");
     }
 
     [TestMethod]
-    public void ValidGetCompareOperations_CheckSequence()
+    public void ValidGetCompareOperationsSequence()
     {
         DataService ds = new DataService();
+
         int x = 111;
         int y = 735;
-        bool[] res = ds.GetCompareOperations(x, y);
+        bool[] results = ds.GetCompareOperations(x, y);
 
-        // Проверяем строгую последовательность операций
-        Assert.IsFalse(res[0], "Операция == должна возвращать False");
-        Assert.IsFalse(res[1], "Операция != должна возвращать False");
-        Assert.IsFalse(res[2], "Операция < должна возвращать False");
-        Assert.IsFalse(res[3], "Операция > должна возвращать False");
-        Assert.IsFalse(res[4], "Операция <= должна возвращать False");
-        Assert.IsFalse(res[5], "Операция >= должна возвращать False");
-    }
-    }
+        // Проверяем конкретную последовательность
+        bool[] expected = { false, false, false, false, false, false };
 
+        CollectionAssert.AreEqual(expected, results);
+    }
+}
