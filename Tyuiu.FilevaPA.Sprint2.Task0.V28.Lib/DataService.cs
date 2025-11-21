@@ -7,13 +7,13 @@ public bool[] GetCompareOperations(int x, int y)
     {
         bool[] results = new bool[6];
 
-        // Все операции возвращают False для x = 111, y = 735
+        // Операции сравнения, которые всегда возвращают False для x=111, y=735
         results[0] = x == y;                    // 111 == 735 → False
-        results[1] = (x + 100) == (y - 500);    // 211 == 235 → False
-        results[2] = (x * 10) < y;              // 1110 < 735 → False
-        results[3] = (y / 10) > x;              // 73 > 111 → False
-        results[4] = x <= (x - 50);             // 111 <= 61 → False
-        results[5] = y >= (y + 10);             // 735 >= 745 → False
+        results[1] = x > y;                     // 111 > 735 → False  
+        results[2] = x >= y;                    // 111 >= 735 → False
+        results[3] = (x + 1000) < y;            // 1111 < 735 → False
+        results[4] = (x * 10) == y;             // 1110 == 735 → False
+        results[5] = (y - x) < 0;               // 624 < 0 → False
 
         return results;
     }

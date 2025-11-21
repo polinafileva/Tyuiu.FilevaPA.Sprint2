@@ -12,33 +12,13 @@ public sealed class DataServiceTest
         int y = 735;
         bool[] results = ds.GetCompareOperations(x, y);
 
-        // Проверяем что все элементы массива False
-        bool allFalse = true;
-        foreach (bool result in results)
-        {
-            if (result)
-            {
-                allFalse = false;
-                break;
-            }
-        }
-
+        // Проверяем длину массива
         Assert.AreEqual(6, results.Length);
-        Assert.IsTrue(allFalse, "Все элементы массива должны быть False");
-    }
 
-    [TestMethod]
-    public void ValidGetCompareOperationsSequence()
-    {
-        DataService ds = new DataService();
-
-        int x = 111;
-        int y = 735;
-        bool[] results = ds.GetCompareOperations(x, y);
-
-        // Проверяем конкретную последовательность
-        bool[] expected = { false, false, false, false, false, false };
-
-        CollectionAssert.AreEqual(expected, results);
+        // Проверяем что все элементы False
+        for (int i = 0; i < results.Length; i++)
+        {
+            Assert.IsFalse(results[i], $"Элемент {i} должен быть False");
+        }
     }
 }
