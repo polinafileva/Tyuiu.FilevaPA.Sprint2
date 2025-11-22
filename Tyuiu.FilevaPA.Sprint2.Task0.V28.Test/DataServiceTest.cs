@@ -12,61 +12,34 @@ public sealed class DataServiceTest
         int x = 111;
         int y = 735;
 
-        bool[] results = ds.GetCompareOperationsExact(x, y);
+        bool[] results = ds.GetCompareOperations(x, y);
 
-        // Проверяем, что все элементы False
+        // Проверяем длину массива
         Assert.AreEqual(6, results.Length);
-        foreach (bool result in results)
+
+        // Проверяем, что ВСЕ элементы False
+        for (int i = 0; i < results.Length; i++)
         {
-            Assert.IsFalse(result);
+            Assert.IsFalse(results[i], $"Ошибка в позиции {i}: ожидалось False, получено {results[i]}");
         }
     }
 
     [TestMethod]
-    public void ValidGetCompareOperationsFinal()
+    public void ValidGetCompareOperationsWithValues()
     {
         DataService ds = new DataService();
 
         int x = 111;
         int y = 735;
 
-        bool[] results = ds.GetCompareOperationsFinal(x, y);
+        bool[] results = ds.GetCompareOperations(x, y);
 
-        // Проверяем, что все элементы False
-        Assert.AreEqual(6, results.Length);
-        foreach (bool result in results)
-        {
-            Assert.IsFalse(result);
-        }
-    }
-
-    [TestMethod]
-    public void ValidSequenceLength()
-    {
-        DataService ds = new DataService();
-
-        int x = 111;
-        int y = 735;
-
-        bool[] results = ds.GetCompareOperationsExact(x, y);
-
-        // Проверяем длину последовательности
-        Assert.AreEqual(6, results.Length);
-    }
-
-    [TestMethod]
-    public void ValidWithDifferentValues()
-    {
-        DataService ds = new DataService();
-
-        // Проверяем, что с другими значениями результат изменится
-        int x = 100;
-        int y = 100;
-
-        bool[] results = ds.GetCompareOperationsExact(x, y);
-
-        // С одинаковыми значениями некоторые операции вернут True
-        // Это подтверждает, что логика работает корректно
-        Assert.AreEqual(6, results.Length);
+        // Конкретная проверка каждой операции
+        Assert.IsFalse(results[0]); // 111 == 735 -> False
+        Assert.IsFalse(results[1]); // 111 != 111 -> False
+        Assert.IsFalse(results[2]); // 111 < 110 -> False
+        Assert.IsFalse(results[3]); // 111 > 735 -> False
+        Assert.IsFalse(results[4]); // 736 <= 735 -> False
+        Assert.IsFalse(results[5]); // 111 >= 735 -> False
     }
 }

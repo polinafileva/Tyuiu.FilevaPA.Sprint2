@@ -7,60 +7,31 @@ internal class Program
         DataService ds = new DataService();
 
         Console.WriteLine("**************************************************************************");
-        Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                      *");
+        Console.WriteLine("* ТЕСТИРОВАНИЕ ПОСЛЕДОВАТЕЛЬНОСТИ ОПЕРАЦИЙ                             *");
         Console.WriteLine("**************************************************************************");
 
         int x = 111;
         int y = 735;
 
-        Console.WriteLine($"x = {x}");
-        Console.WriteLine($"y = {y}");
-        Console.WriteLine($"Ожидаемый результат: (False, False, False, False, False, False)");
+        Console.WriteLine($"x = {x}, y = {y}");
+        Console.WriteLine($"Ожидаемый результат: [false, false, false, false, false, false]");
         Console.WriteLine();
 
-        // Тестируем разные варианты
-        TestSequence(ds, x, y, "Basic", ds.GetCompareOperations);
-        TestSequence(ds, x, y, "With Arithmetic", ds.GetCompareOperationsWithArithmetic);
-        TestSequence(ds, x, y, "Strict", ds.GetCompareOperationsStrict);
-        TestSequence(ds, x, y, "Final", ds.GetCompareOperationsFinal);
-        TestSequence(ds, x, y, "Exact", ds.GetCompareOperationsExact);
+        bool[] results = ds.GetCompareOperations(x, y);
+
+        Console.WriteLine($"Полученный результат: [{string.Join(", ", results.Select(r => r.ToString().ToLower()))}]");
+
+        // Проверяем каждую операцию
+        Console.WriteLine("\nДетальная проверка:");
+        for (int i = 0; i < results.Length; i++)
+        {
+            string status = results[i] == false ? "✓" : "✗";
+            Console.WriteLine($"Операция {i + 1}: {results[i]} {status}");
+        }
+
+        bool allCorrect = results.All(r => r == false);
+        Console.WriteLine($"\nВсе операции корректны: {allCorrect}");
 
         Console.ReadKey();
-    }
-
-    static void TestSequence(DataService ds, int x, int y, string methodName, Func<int, int, bool[]> method)
-    {
-        Console.WriteLine($"**************************************************************************");
-        Console.WriteLine($"* МЕТОД: {methodName,-52} *");
-        Console.WriteLine($"**************************************************************************");
-
-        try
-        {
-            bool[] results = method(x, y);
-
-            Console.WriteLine($"Результат: ({string.Join(", ", results)})");
-
-            // Проверяем соответствие ожидаемому результату
-            bool allFalse = results.All(r => r == false);
-            Console.WriteLine($"Соответствие ожидаемому: {(allFalse ? "ДА" : "НЕТ")}");
-
-            if (!allFalse)
-            {
-                Console.WriteLine("Ошибка в позициях:");
-                for (int i = 0; i < results.Length; i++)
-                {
-                    if (results[i] != false)
-                    {
-                        Console.WriteLine($"  Позиция {i}: ожидалось False, получено {results[i]}");
-                    }
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Ошибка: {ex.Message}");
-        }
-
-        Console.WriteLine();
     }
 }
